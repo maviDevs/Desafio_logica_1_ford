@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+            let distanciaPecorrida = parseFloat(prompt("Qual a distância percorrida da sua casa ate seu trabalho (em km) ?"));
+            let consumoMedio = parseFloat(prompt("Qual o consumo meéio do seu veículo (em km/L)"));
+            let consumoNecessario = distanciaPecorrida/consumoMedio ;
+
+            
+            let qtd_posto = parseInt(prompt("Em quantos posto você pesquisou ?"));
+            let menorValor= null;
+            let somaTotal = 0;
+            let i ; 
+            let precoDosPosto;
+
+            for (i=1; i<=qtd_posto; i++){
+               
+                do{
+                 precoDosPosto = parseFloat(prompt(`Digite o valor encontrado (em R$) no posto ${i} :` ));// declarar a variavel valordos posto fora
+                
+                }while(isNaN(precoDosPosto));
+                somaTotal+= precoDosPosto;
+                
+
+                if (menorValor === null || precoDosPosto < menorValor){
+
+                    menorValor= precoDosPosto 
+                }
+            }
+            let mediaPreco = somaTotal/qtd_posto;
+
+            let gastoDiario = 2*(consumoNecessario*menorValor)
+
+            document.write("<br>");
+            document.write("o cosumo necessário é  "+ consumoNecessario.toFixed(2) + " litros");
+            document.write("<br>");
+            document.write("O menor valor é R$: " + menorValor);
+            document.write("<br>");
+            document.write("A media dos valores pesquisados é : "+ mediaPreco.toFixed(2));
+            document.write("<br>");
+            document.write("o gasto diario (ida e volta) é R$: "+ gastoDiario.toFixed(2));
+
+
+
+    </script>
+
+</body>
+</html>
